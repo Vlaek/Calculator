@@ -77,8 +77,9 @@ function equate() {
     let result = evaluateExpression(prepareInput(input));
 
     if (!Number.isInteger(result)) {
-        result = round(result, 15);
+        result = round(result, 10);
     }
+
 
     input = "" + result;
     display_input.innerHTML = "";
@@ -93,7 +94,7 @@ function equate() {
 
 function pushBackspace() {
     if (display_input.innerHTML == "") {
-        if (display_output.innerHTML == "0") {
+        if (display_output.innerHTML == "0" || display_output.innerHTML == "Error") {
             return false;
         }
         display_output.innerHTML = display_output.innerHTML.slice(0, -1);
